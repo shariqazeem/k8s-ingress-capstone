@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  name: my-ingress
+spec:
+  rules:
+  - host: shariq.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/hello-app-1"
+        backend:
+          service:
+            name: deployment1
+            port:
+              number: 80
